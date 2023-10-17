@@ -33,6 +33,16 @@ export async function seed() {
 		{
 			id: 5,
 			name: "Dan",
+			managerId: 4,
+		},
+		{
+			id: 6,
+			name: "Pete",
+			managerId: 2,
+		},
+		{
+			id: 7,
+			name: "Luis",
 			managerId: 1,
 		},
 	];

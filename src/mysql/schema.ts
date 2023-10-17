@@ -14,6 +14,7 @@ import {
 	varchar,
 	primaryKey,
 	datetime,
+	timestamp,
 } from "drizzle-orm/mysql-core";
 
 // declaring enum in database
@@ -28,6 +29,7 @@ export const countries = mysqlTable(
 	},
 	(countries) => ({
 		nameIndex: uniqueIndex("name_idx").on(countries.name),
+		check: sql`check(name <> '')`,
 	}),
 );
 
@@ -50,8 +52,10 @@ export type NewCity = InferInsertModel<typeof cities>;
 export const users = mysqlTable("users", {
 	id: int("id").autoincrement().primaryKey(),
 	name: text("name").notNull(),
-	managerId: int("user_id").references((): AnyMySqlColumn => users.id),
-	createdAt: datetime("created_at", { fsp: 3 }).default(
+	managerId: int("manager_id")
+		.references((): AnyMySqlColumn => users.id)
+		.$default(() => 1),
+	createdAt: timestamp("created_at", { fsp: 3, mode: "string" }).default(
 		sql`current_timestamp(3)`,
 	),
 });

@@ -17,6 +17,11 @@ import {
 	AnyPgColumn,
 } from "drizzle-orm/pg-core";
 
+export const counters = pgTable("counters", {
+	id: serial("id").unique().primaryKey(),
+	count: integer("count").notNull(),
+});
+
 export const countries = pgTable(
 	"countries",
 	{

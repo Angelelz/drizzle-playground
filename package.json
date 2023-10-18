@@ -7,6 +7,7 @@
   "scripts": {
     "start": "tsx src/index.ts",
     "seed:mysql": "tsx src/mysql/seed.ts",
+    "seed:pg": "tsx src/pg/seed.ts",
     "seed:sqlite": "tsx src/sqlite/seed.ts",
     "pg:push": "drizzle-kit push:pg --config drizzle.config.pg.ts",
     "pg:studio": "drizzle-kit studio --config drizzle.config.pg.ts --host 127.0.0.1",
@@ -18,23 +19,23 @@
   "author": "@rphlmr",
   "license": "ISC",
   "dependencies": {
-    "@libsql/client": "^0.3.1",
+    "@libsql/client": "^0.3.5",
     "@neondatabase/serverless": "^0.6.0",
     "@planetscale/database": "^1.11.0",
-    "@types/pg": "^8.10.2",
-    "better-sqlite3": "^8.5.1",
+    "@types/pg": "^8.10.5",
+    "better-sqlite3": "^9.0.0",
     "dotenv": "^16.3.1",
     "drizzle-orm": "^0.28.6",
     "drizzle-zod": "^0.5.1",
-    "mysql2": "^3.6.0",
+    "mysql2": "^3.6.2",
     "pg": "^8.11.3",
-    "postgres": "^3.3.5"
+    "postgres": "^3.4.0"
   },
   "devDependencies": {
-    "@types/better-sqlite3": "^7.6.4",
+    "@types/better-sqlite3": "^7.6.6",
     "drizzle-kit": "^0.19.13",
-    "prettier": "^3.0.2",
-    "tsx": "^3.12.7",
-    "typescript": "^5.1.6"
+    "prettier": "^3.0.3",
+    "tsx": "^3.14.0",
+    "typescript": "^5.2.2"
   }
 }
